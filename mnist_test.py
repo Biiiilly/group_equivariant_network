@@ -4,7 +4,6 @@ from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 from gcnn_p4.P4GConv2d import P4GConvNet
 
-# MNIST 数据集训练
 transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize((0.5,), (0.5,))
