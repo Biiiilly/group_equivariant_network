@@ -21,7 +21,7 @@ def p4_matrix_generator(r, u, v):
 
     return g
 
-class P4_Group:
+class P4_Group():
 
     def __init__(self, r, u, v):
         '''
