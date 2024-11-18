@@ -21,7 +21,7 @@ class Z2P4GConv2d(torch.nn.Module):
 
         for i in range(4):
             rotated_weight = torch.rot90(self.weight, i, [2, 3])
-            output = F.conv2d(x, rotated_weight, bias=self.bias, padding='same')
+            output = F.conv2d(x, rotated_weight, bias=None, padding='same')
             outputs.append(output)
 
         return torch.stack(outputs, dim=2)
