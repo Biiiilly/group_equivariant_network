@@ -1,10 +1,7 @@
-#!/usr/bin/env python
-
-from distutils.core import setup
+from setuptools import setup, find_packages
 
 setup(
-    name='gcnn_p4',
-    version='0.1.1',
-    description='Group equivariant convolutional neural networks in p4 group',
-    packages=[],
+    name='group_equivariant_network',
+    version='0.1',
+    packages=find_packages(),
 )

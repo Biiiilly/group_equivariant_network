@@ -54,25 +54,33 @@ class P4P4GConv2d(torch.nn.Module):
         return torch.stack(outputs, dim=2)
 
 
-'''
-class Z2P4GConvNet(nn.Module):
+def GConv2d_MaxPooling(x, kernel_size):
+
+    size = x.size()
+    x = x.view(size[0], size[1]*size[2], size[3], size[4])
+    x = F.max_pool2d(x, kernel_size)
+    x = x.view(size[0], size[1], size[2], int(size[3]/kernel_size), int(size[4]/kernel_size))
+
+    return x
+
+
+class P4GConvNet(nn.Module):
 
     def __init__(self):
 
-        super(Z2P4GConvNet, self).__init__()
-        self.gconv1 = P4GConv2d(in_channels=3, out_channels=8, kernel_size=3)
-        self.pool1 = nn.MaxPool2d(kernel_size=2, stride=2)
-        self.gconv2 = P4GConv2d(in_channels=32, out_channels=16, kernel_size=3)
-        self.pool2 = nn.MaxPool2d(kernel_size=2, stride=2)
-        self.fc = nn.Linear(64 * 8 * 8, 10)
+        super(P4GConvNet, self).__init__()
+        # self.batck_size = batch_size
+        self.gconv1 = Z2P4GConv2d(in_channels=1, out_channels=8, kernel_size=3)
+        self.gconv2 = P4P4GConv2d(in_channels=8, out_channels=16, kernel_size=3)
+        self.fc = nn.Linear(16 * 4 * 7 * 7, 10)
 
     def forward(self, x):
 
         x = self.gconv1(x)
-        x = self.pool1(x)
+        x = GConv2d_MaxPooling(x, 2)
         x = self.gconv2(x)
-        x = self.pool2(x)
+        x = GConv2d_MaxPooling(x, 2)
+        x = x.view(x.size(0), -1)
         x = self.fc(x)
 
         return x
-'''

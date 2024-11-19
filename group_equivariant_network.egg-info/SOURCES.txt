@@ -1,0 +1,9 @@
+setup.py
+gcnn_p4/P4GConv2d.py
+gcnn_p4/__init__.py
+gcnn_p4/check_equivariance.py
+gcnn_p4/p4_group.py
+group_equivariant_network.egg-info/PKG-INFO
+group_equivariant_network.egg-info/SOURCES.txt
+group_equivariant_network.egg-info/dependency_links.txt
+group_equivariant_network.egg-info/top_level.txt
