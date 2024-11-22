@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import P4GConv2d as g
+import gcnn_p4.P4GConv2d as g
 
 '''
 We want to check equivariance of Z2P4GConv2d and P4P4Gconv2d in this file.
@@ -21,7 +21,7 @@ def check_equivariant(network, batch_size):
         x_rotate = torch.rot90(x, i, (2, 3))
         rotate_result = network(x_rotate)
 
-        assert torch.allclose(torch.sort(rotate_result, dim=2)[0], torch.sort(rotate_result, dim=2)[0], atol=1e-8)
+        assert torch.allclose(torch.sort(result_rotate, dim=2)[0], torch.sort(rotate_result, dim=2)[0], atol=1e-8)
 
 
 class test_P4GConvNet(nn.Module):
@@ -45,3 +45,4 @@ class test_P4GConvNet(nn.Module):
 batch_size = 64
 model = test_P4GConvNet()
 check_equivariant(model, batch_size)
+print('True')
