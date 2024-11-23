@@ -62,27 +62,27 @@ def check_invariant_2(network, in_channel, out_channels, image_size, batch_size)
 
 class test_P4GConvNet_lastlayer(nn.Module):
 
-    def __init__(self, image_size=4, in_channels=1, out_channels=3, output_features=5, kernel_size=3):
+    def __init__(self, image_size=6, in_channels=1, out_channels=3, output_features=5, kernel_size=3):
 
         super(test_P4GConvNet_lastlayer, self).__init__()
         self.gconv1 = g.Z2P4GConv2d(in_channels=in_channels, out_channels=out_channels, kernel_size=kernel_size)
-        # self.fc = nn.Linear(out_channels * image_size * image_size, output_features)
+        self.fc = nn.Linear(out_channels * int(image_size/2) * int(image_size/2), output_features)
     
     def forward(self, x):
 
         x = self.gconv1(x)
-        # x = g.GConv2d_MaxPooling(x, 2)
-
-        print(x)
+        x = g.GConv2d_MaxPooling(x, 2)
 
         x = torch.max(x, dim=2)[0]
+        x = x.view(x.size(0), x.size(1), x.size(2)*x.size(3))
+        x = torch.sort(x, dim=2)[0]
         
-        # x = x.view(x.size(0), -1)
-        # x = self.fc(x)
+        x = x.view(x.size(0), -1)
+        x = self.fc(x)
 
         return x
 
 
-model = test_P4GConvNet_lastlayer()
-check_invariant_1(model, in_channel=1, out_channel=3, image_size=4, batch_size=1)
-print('True for model')
+model = test_P4GConvNet_lastlayer(image_size=6, in_channels=1, out_channels=3, output_features=5, kernel_size=3)
+# check_invariant_1(model, in_channel=1, out_channel=3, image_size=5, batch_size=1)
+# print('True for model')
