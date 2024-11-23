@@ -60,13 +60,28 @@ class test_P4GConvNet(nn.Module):
         return x
 
 
+class test_P4GConvNet_lastlayer(nn.Module):
+
+    def __init__(self, input_size=28, in_channels=3, middel_channels=64, output_features=10, kernel_size=3):
+
+        super(test_P4GConvNet_lastlayer, self).__init__()
+        self.gconv1 = g.Z2P4GConv2d(in_channels=in_channels, out_channels=middel_channels, kernel_size=kernel_size)
+        self.fc = nn.Linear(middel_channels * 4 * (input_size/2) * (input_size/2), output_features)
+    
+    def forward(self, x):
+
+        x = self.gconv1(x)
+        x = g.GConv2d_MaxPooling(x, 2)
+        x = self.fc(x)
+
+        return x
 
 batch_size = 64
 in_channels = 3
-out_channels = 64
+middel_channels, out_channels = 64
 kernel_size = 3
 image_size = 28
 
 model = test_P4GConvNet(in_channels=in_channels, out_channels=out_channels, kernel_size=kernel_size)
 check_equivariant(model, in_channel=in_channels, out_channel=out_channels, image_size=image_size, batch_size=batch_size)
-print('True')
+print('True for model')
