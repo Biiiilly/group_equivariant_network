@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import gcnn_p4.P4GConv2d as g
 
+'''
 def check_invariant_1(network, in_channel, out_channel, image_size, batch_size):
 
     x = torch.randn(batch_size, in_channel, image_size, image_size)
@@ -27,7 +28,6 @@ def check_invariant_1(network, in_channel, out_channel, image_size, batch_size):
 
                 assert torch.allclose(a1, a2)
 
-'''
 def check_invariant_2(network, in_channel, out_channels, image_size, batch_size):
 
     x = torch.randn(batch_size, in_channel, image_size, image_size)
