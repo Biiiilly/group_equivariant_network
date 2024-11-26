@@ -71,9 +71,9 @@ class P4GConvNet(nn.Module):
 
         super(P4GConvNet, self).__init__()
         # self.batck_size = batch_size
-        self.gconv1 = Z2P4GConv2d(in_channels=1, out_channels=1, kernel_size=3)
-        self.gconv2 = P4P4GConv2d(in_channels=1, out_channels=1, kernel_size=3)
-        self.fc = nn.Linear(16 * 14 * 14, 10)
+        self.gconv1 = Z2P4GConv2d(in_channels=1, out_channels=8, kernel_size=3)
+        self.gconv2 = P4P4GConv2d(in_channels=8, out_channels=16, kernel_size=3)
+        self.fc = nn.Linear(16 * 7 * 7, 10)
 
     def forward(self, x):
 
@@ -81,6 +81,7 @@ class P4GConvNet(nn.Module):
         x = GConv2d_MaxPooling(x, 2)
 
         x = self.gconv2(x)
+        x = GConv2d_MaxPooling(x, 2)
         x = torch.max(x, dim=2)[0]
 
         x = x.view(x.size(0), x.size(1), x.size(2)*x.size(3))

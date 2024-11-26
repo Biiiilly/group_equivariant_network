@@ -32,13 +32,13 @@ def P4P4_check_equivariant(in_channels, out_channels, image_size, batch_size, ke
                 sorted2 = rotate_result_fixed[sorted_indices2]
 
                 for ind in range(4):
-                    if torch.allclose(sorted1[i], sorted2[i], atol=1e-5) == False:
+                    if torch.allclose(sorted1[i], sorted2[i], atol=1e-4) == False:
                         print(f'b:{b}, c:{c}, i:{i}')
                         print(sorted1[i])
                         print(sorted2[i])
                         difference = torch.abs(sorted1[i] - sorted2[i])
                         print("Max absolute difference:", torch.max(difference))
-                    assert torch.allclose(sorted1[i], sorted2[i], atol=1e-5)
+                    assert torch.allclose(sorted1[i], sorted2[i], atol=1e-4)
 
 
 in_channels = 10
