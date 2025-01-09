@@ -3,7 +3,7 @@ import torch.nn as nn
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 import matplotlib.pyplot as plt
-from gcnn_p4.P4GConv2d import P4GConvNet
+from gcnn_p4.network import P4GConvNet
 
 transform = transforms.Compose([
     transforms.RandomRotation(degrees=90),  # random rotation

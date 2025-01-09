@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
-from gcnn_p4.P4GConv2d import P4GConvNet
+from gcnn_p4.network import P4GConvNet
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -11,7 +11,7 @@ gcnn.load_state_dict(torch.load('gcnn_mnist.pth'))
 gcnn.eval()
 
 transform = transforms.Compose([
-    transforms.RandomRotation(degrees=90), # Random rotation
+    transforms.RandomRotation(degrees=(90, 90)), # Random rotation
     transforms.ToTensor(),
     transforms.Normalize((0.5,), (0.5,))
 ])
@@ -33,4 +33,4 @@ with torch.no_grad():
 accuracy = 100 * correct / total
 print(f'Test Accuracy on the rotated mnist dataset: {accuracy:.2f}%')
 
-# Test Accuracy on the rotated mnist dataset: 46.82%
+# Test Accuracy on the rotated mnist dataset: 53.66%
