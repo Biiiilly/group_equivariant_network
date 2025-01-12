@@ -14,14 +14,24 @@ G-CNNs extend the traditional convolutional neural network (CNN) paradigm by inc
 ## Project Structure
 
 ```
-.
-├── check_invariance.py      # Tests invariance properties of the G-CNN
-├── layer_p4.py              # Implements p4 group convolution layers
-├── max_pool_p4.py           # Implements group-based max pooling
-├── network.py               # Defines G-CNN and standard CNN architectures
-├── mnist_test.py            # Training and evaluation on standard MNIST
-├── mnist_test_rot.py        # Evaluation on rotated MNIST
-├── rot_mnist_test.py        # Training and evaluation on rotated MNIST
+├── gcnn_p4/
+│   ├── __init__.py                  # Initializes the package
+│   ├── check_equivariance.py        # Tests equivariance properties of the G-CNN
+│   ├── check_invariance.py          # Tests invariance properties of the G-CNN
+│   ├── layer_p4.py                  # Implements P4 group convolution layers
+│   ├── max_pool_p4.py               # Implements group-based max pooling
+│   ├── network.py                   # Defines G-CNN and standard CNN architectures
+├── training/
+│   ├── mnist_test.py                # Training and evaluation on standard MNIST
+│   ├── mnist_test_rot.py            # Evaluation on rotated MNIST
+│   ├── rot_mnist_test.py            # Training and evaluation on rotated MNIST
+├── reference/                       # Contains reference research papers
+│   ├── 1602.07576v3.pdf
+│   ├── 2106.06610v4.pdf
+│   ├── 2209.14991v3.pdf
+├── requirements.txt                 # Lists the required dependencies
+├── setup.py                         # Script for setting up the project
+└── README.md                        # Documentation of the project
 ```
 
 ## Key Features
