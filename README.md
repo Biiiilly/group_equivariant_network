@@ -16,8 +16,8 @@ G-CNNs extend the traditional convolutional neural network (CNN) paradigm by inc
 ```
 ├── gcnn_p4/
 │   ├── __init__.py                  # Initializes the package
-│   ├── check_equivariance.py        # Tests equivariance properties of the G-CNN
-│   ├── check_invariance.py          # Tests invariance properties of the G-CNN
+│   ├── check_equivariance.py        # Tests equivariance properties of the layers
+│   ├── check_invariance.py          # Tests invariance properties of the network
 │   ├── layer_p4.py                  # Implements P4 group convolution layers
 │   ├── max_pool_p4.py               # Implements group-based max pooling
 │   ├── network.py                   # Defines G-CNN and standard CNN architectures
@@ -72,19 +72,25 @@ Scripts for training and testing the models include:
 ### Training on MNIST
 Run the training script for standard MNIST:
 ```bash
-python mnist_test.py
+python training/mnist_test.py
 ```
 
 ### Training on Rotated MNIST
 Run the training script for rotated MNIST:
 ```bash
-python rot_mnist_test.py
+python training/rot_mnist_test.py
 ```
 
 ### Testing Invariance
 Check rotational invariance of the model:
 ```bash
-python check_invariance.py
+python -m pytest gcnn_p4/check_invariance.py
+```
+
+### Testing Equivariance
+Check rotational Equivariance of the layers:
+```bash
+python -m pytest gcnn_p4/check_equivariance.py
 ```
 
 ## Results
@@ -107,6 +113,4 @@ If you use this code, please cite:
 }
 ```
 
-## Acknowledgments
-This implementation is based on the foundational work of Cohen and Welling on Group Equivariant Convolutional Networks. Special thanks to the PyTorch community for providing excellent tools for neural network development.
-
+## Future Work
