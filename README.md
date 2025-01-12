@@ -1,6 +1,7 @@
 # Group Equivariant Convolutional Networks (G-CNN)
 
 This repository implements a Group Equivariant Convolutional Network (G-CNN) for image classification tasks, inspired by the paper "Group Equivariant Convolutional Networks" by Taco S. Cohen and Max Welling ([arXiv:1602.07576v3](https://arxiv.org/abs/1602.07576v3)). This implementation focuses on leveraging rotational symmetries to improve performance on datasets such as MNIST and rotated MNIST.
+This is part of my M4R project focusing on symmetries in deep learning. I conducted this research from October 2024 at Imperial College London, under the supervision of Dr. Webster Kevin and Professor Jeroen Lamb.
 
 ## Overview
 G-CNNs extend the traditional convolutional neural network (CNN) paradigm by incorporating group equivariant convolutions. These layers exploit symmetries, such as translations and rotations, enabling the network to share weights more effectively and generalize better with fewer parameters. This repository includes the following components:
@@ -13,14 +14,24 @@ G-CNNs extend the traditional convolutional neural network (CNN) paradigm by inc
 ## Project Structure
 
 ```
-.
-├── check_invariance.py      # Tests invariance properties of the G-CNN
-├── layer_p4.py              # Implements p4 group convolution layers
-├── max_pool_p4.py           # Implements group-based max pooling
-├── network.py               # Defines G-CNN and standard CNN architectures
-├── mnist_test.py            # Training and evaluation on standard MNIST
-├── mnist_test_rot.py        # Evaluation on rotated MNIST
-├── rot_mnist_test.py        # Training and evaluation on rotated MNIST
+├── gcnn_p4/
+│   ├── __init__.py                  # Initializes the package
+│   ├── check_equivariance.py        # Tests equivariance properties of the layers
+│   ├── check_invariance.py          # Tests invariance properties of the network
+│   ├── layer_p4.py                  # Implements P4 group convolution layers
+│   ├── max_pool_p4.py               # Implements group-based max pooling
+│   ├── network.py                   # Defines G-CNN and standard CNN architectures
+├── training/
+│   ├── mnist_test.py                # Training and evaluation on standard MNIST
+│   ├── mnist_test_rot.py            # Evaluation on rotated MNIST
+│   ├── rot_mnist_test.py            # Training and evaluation on rotated MNIST
+├── reference/                       # Contains reference research papers
+│   ├── 1602.07576v3.pdf
+│   ├── 2106.06610v4.pdf
+│   ├── 2209.14991v3.pdf
+├── requirements.txt                 # Lists the required dependencies
+├── setup.py                         # Script for setting up the project
+└── README.md                        # Documentation of the project
 ```
 
 ## Key Features
@@ -61,19 +72,25 @@ Scripts for training and testing the models include:
 ### Training on MNIST
 Run the training script for standard MNIST:
 ```bash
-python mnist_test.py
+python training/mnist_test.py
 ```
 
 ### Training on Rotated MNIST
 Run the training script for rotated MNIST:
 ```bash
-python rot_mnist_test.py
+python training/rot_mnist_test.py
 ```
 
 ### Testing Invariance
 Check rotational invariance of the model:
 ```bash
-python check_invariance.py
+python -m pytest gcnn_p4/check_invariance.py
+```
+
+### Testing Equivariance
+Check rotational Equivariance of the layers:
+```bash
+python -m pytest gcnn_p4/check_equivariance.py
 ```
 
 ## Results
@@ -96,6 +113,4 @@ If you use this code, please cite:
 }
 ```
 
-## Acknowledgments
-This implementation is based on the foundational work of Cohen and Welling on Group Equivariant Convolutional Networks. Special thanks to the PyTorch community for providing excellent tools for neural network development.
-
+## Future Work
