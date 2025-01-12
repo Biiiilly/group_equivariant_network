@@ -47,7 +47,6 @@ In `network.py`, two main architectures are defined:
 1. Clone this repository:
    ```bash
    git clone https://github.com/Biiiilly/group_equivariant_network
-   cd gcnn
    ```
 2. Install dependencies:
    ```bash
