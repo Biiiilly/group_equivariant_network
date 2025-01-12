@@ -21,7 +21,6 @@ G-CNNs extend the traditional convolutional neural network (CNN) paradigm by inc
 ├── mnist_test.py            # Training and evaluation on standard MNIST
 ├── mnist_test_rot.py        # Evaluation on rotated MNIST
 ├── rot_mnist_test.py        # Training and evaluation on rotated MNIST
-├── 1602.07576v3.pdf         # Reference paper for G-CNNs
 ```
 
 ## Key Features
@@ -48,7 +47,7 @@ Scripts for training and testing the models include:
 ## Installation
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-repo/gcnn
+   git clone https://github.com/Biiiilly/group_equivariant_network
    cd gcnn
    ```
 2. Install dependencies:
