@@ -22,16 +22,10 @@ G-CNNs extend the traditional convolutional neural network (CNN) paradigm by inc
 │   ├── max_pool_p4.py               # Implements group-based max pooling
 │   ├── network.py                   # Defines G-CNN and standard CNN architectures
 ├── training/
-│   ├── mnist_test.py                # Training and evaluation on standard MNIST
-│   ├── mnist_test_rot.py            # Evaluation on rotated MNIST
-│   ├── rot_mnist_test.py            # Training and evaluation on rotated MNIST
-├── reference/                       # Contains reference research papers
-│   ├── 1602.07576v3.pdf
-│   ├── 2106.06610v4.pdf
-│   ├── 2209.14991v3.pdf
-├── requirements.txt                 # Lists the required dependencies
-├── setup.py                         # Script for setting up the project
-└── README.md                        # Documentation of the project
+│   ├── gcnn_mnist_test.py           # G-CNN Training and evaluation on standard MNIST
+│   ├── cnn_mnist_test.py            # CNN Training and evaluation on standard MNIST
+│   ├── gcnn_rot_mnist_test.py       # G-CNN Training and evaluation on rotated MNIST
+│   ├── test.py                      # Comparison of G-CNN and CNN
 ```
 
 ## Key Features
@@ -48,12 +42,6 @@ The pooling operation in `max_pool_p4.py` ensures equivariance by pooling over t
 In `network.py`, two main architectures are defined:
 - **P4GConvNet**: A G-CNN model utilizing p4 group convolutions.
 - **CNN**: A standard convolutional neural network for baseline comparison.
-
-### 4. MNIST and Rotated MNIST
-Scripts for training and testing the models include:
-- `mnist_test.py`: Training and evaluating models on the standard MNIST dataset.
-- `mnist_test_rot.py`: Testing pre-trained G-CNNs on rotated MNIST.
-- `rot_mnist_test.py`: Training and evaluating models on rotated MNIST.
 
 ## Installation
 1. Clone this repository:
@@ -72,13 +60,13 @@ Scripts for training and testing the models include:
 ### Training on MNIST
 Run the training script for standard MNIST:
 ```bash
-python training/mnist_test.py
+python training/gcnn_mnist_test.py
 ```
 
 ### Training on Rotated MNIST
 Run the training script for rotated MNIST:
 ```bash
-python training/rot_mnist_test.py
+python training/gcnn_rot_mnist_test.py
 ```
 
 ### Testing Invariance
@@ -94,7 +82,7 @@ python -m pytest gcnn_p4/check_equivariance.py
 ```
 
 ## Results
-### MNIST
+### G-CNN Trained on MNIST
 - **Standard CNN**: Baseline accuracy on MNIST.
 - **P4GConvNet**: Improved accuracy by leveraging group convolutions.
 
