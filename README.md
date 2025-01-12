@@ -1,6 +1,7 @@
 # Group Equivariant Convolutional Networks (G-CNN)
 
 This repository implements a Group Equivariant Convolutional Network (G-CNN) for image classification tasks, inspired by the paper "Group Equivariant Convolutional Networks" by Taco S. Cohen and Max Welling ([arXiv:1602.07576v3](https://arxiv.org/abs/1602.07576v3)). This implementation focuses on leveraging rotational symmetries to improve performance on datasets such as MNIST and rotated MNIST.
+This is part of my M4R project focusing on symmetries in deep learning. I conducted this research from October 2024 at Imperial College London, under the supervision of Dr. Webster Kevin and Professor Jeroen Lamb.
 
 ## Overview
 G-CNNs extend the traditional convolutional neural network (CNN) paradigm by incorporating group equivariant convolutions. These layers exploit symmetries, such as translations and rotations, enabling the network to share weights more effectively and generalize better with fewer parameters. This repository includes the following components:
