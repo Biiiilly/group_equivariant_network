@@ -88,6 +88,9 @@ python -m pytest gcnn_p4/check_equivariance.py
 - **Evaluation on rotated MNIST dataset**: Around 57.98% compared with 53.97% tested on CNN.
 - **Evaluation on 90 degrees rotated MNIST dataset**: Around 86.34% compared with 18.26% tested on CNN.
 
+## Conclusion
+This project demonstrates the effectiveness of Group Equivariant Convolutional Networks (G-CNNs) in leveraging rotational symmetries for improved image classification. G-CNNs outperform standard CNNs, particularly on rotated datasets, showcasing their robustness and efficiency in symmetry-aware tasks. With a modular design and rigorous testing, this implementation highlights the potential of equivariant methods for advancing deep learning.
+
 ## Reference
 If you use this code, please cite:
 ```
