@@ -82,13 +82,11 @@ python -m pytest gcnn_p4/check_equivariance.py
 ```
 
 ## Results
-### G-CNN Trained on MNIST
-- **Standard CNN**: Baseline accuracy on MNIST.
-- **P4GConvNet**: Improved accuracy by leveraging group convolutions.
-
-### Rotated MNIST
-- **Standard CNN**: Limited performance due to lack of rotational equivariance.
-- **P4GConvNet**: Achieves significantly better accuracy due to rotational equivariance.
+### G-CNN Trained on normal MNIST dataset
+- **Structure**: Two intermediate layers with 20 filters for each.
+- **Accuarcy**: Around 86%.
+- **Evaluation on rotated MNIST dataset**: Around 57.98% compared with 53.97% tested on CNN.
+- **Evaluation on 90 degrees rotated MNIST dataset**: Around 86.34% compared with 18.26% tested on CNN.
 
 ## Reference
 If you use this code, please cite:
@@ -100,5 +98,3 @@ If you use this code, please cite:
   year={2016}
 }
 ```
-
-## Future Work
