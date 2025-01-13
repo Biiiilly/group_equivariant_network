@@ -90,13 +90,4 @@ python -m pytest gcnn_p4/check_equivariance.py
 ## Conclusion
 This project demonstrates the effectiveness of Group Equivariant Convolutional Networks (G-CNNs) in leveraging rotational symmetries for improved image classification. G-CNNs outperform standard CNNs, particularly on rotated datasets, showcasing their robustness and efficiency in symmetry-aware tasks. With a modular design and rigorous testing, this implementation highlights the potential of equivariant methods for advancing deep learning.
 
-## Reference
-If you use this code, please cite:
-```
-@article{cohen2016group,
-  title={Group Equivariant Convolutional Networks},
-  author={Cohen, Taco S and Welling, Max},
-  journal={arXiv preprint arXiv:1602.07576},
-  year={2016}
-}
 ```
