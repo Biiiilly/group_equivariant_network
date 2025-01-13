@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
-from gcnn_p4.network import P4GConvNet, CNN
+from gcnn_p4.network import P4GConvNet
 import matplotlib.pyplot as plt
 
 transform = transforms.Compose([

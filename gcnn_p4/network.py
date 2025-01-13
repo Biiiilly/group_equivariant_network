@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from gcnn_p4.layer_p4 import Z2P4GConv2d, P4P4GConv2d
+from gcnn_p4.layer_p4 import Z2P4GConv2d
 from gcnn_p4.max_pool_p4 import GConv2d_MaxPooling
 
 # This is the model that we are going to train:
