@@ -31,7 +31,7 @@ class P4GConvNet(nn.Module):
         x = self.fc(x)
 
         return F.log_softmax(x)
-    
+
 
 class CNN(nn.Module):
 
