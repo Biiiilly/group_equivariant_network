@@ -1,0 +1,12 @@
+README.md
+setup.py
+gcnn_p4/__init__.py
+gcnn_p4/check_equivariance.py
+gcnn_p4/check_invariance.py
+gcnn_p4/layer_p4.py
+gcnn_p4/max_pool_p4.py
+gcnn_p4/network.py
+group_equivariant_network.egg-info/PKG-INFO
+group_equivariant_network.egg-info/SOURCES.txt
+group_equivariant_network.egg-info/dependency_links.txt
+group_equivariant_network.egg-info/top_level.txt
